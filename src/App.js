@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import AllCommits from "./pages/Index";
 
 function App() {
   //holds the state of the commits
@@ -17,7 +18,7 @@ function App() {
   const comments = [];
   const recursive = (num) => {
     if (num > 0) {
-      comments.push(commits[num-1].commit.message);
+      comments.push(commits[num - 1].commit);
       recursive(num - 1);
     }
   };
@@ -25,10 +26,14 @@ function App() {
   useEffect(() => {
     getCommits();
   }, []);
-  
+
   recursive(commits.length);
   console.log(comments);
-  return <div className="App"></div>;
+  return (
+    <div className="App">
+      <AllCommits comments={comments} />
+    </div>
+  );
 }
 
 export default App;
