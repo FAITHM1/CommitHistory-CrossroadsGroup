@@ -1,7 +1,7 @@
 function Header() {
   return (
     <header>
-      <h1 className="h1">Commit History</h1>
+      <h1 className="fw-bold">Commit History</h1>
     </header>
   );
 }
